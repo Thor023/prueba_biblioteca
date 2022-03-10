@@ -116,7 +116,7 @@ order by 3 desc;
 
 --d. Si se cobrara una multa de $100 por cada día de atraso, mostrar cuánto debería pagar cada usuario que entregue el préstamo después de 7 días.(0.5 puntos)
 
-select rut_socio, socio.nombre, socio.apellido,(fecha_devolucion-fecha_inicio) as dias_retraso,(fecha_devolucion - fecha_inicio)*100 as multa_total
+select rut_socio, socio.nombre, socio.apellido,((fecha_devolucion-fecha_inicio)-7) as dias_retraso,((fecha_devolucion - fecha_inicio)-7)*100 as multa_total
 from prestamo
 INNER JOIN socio ON prestamo.rut_socio = rut
 where (fecha_devolucion-fecha_inicio) > 7;
